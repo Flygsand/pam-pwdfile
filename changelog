@@ -1,0 +1,86 @@
+changelog for pam_pwdfile PAM module - Charl P. Botha <cpbotha@ieee.org>
+$Id: changelog,v 1.20 2003-12-20 19:30:57 cpbotha Exp $
+---------------------------------------------------------------------------
+
+0.99 : Sat Dec 20 20:30:37 CET 2003
+
+* added micro howto by Warwick Duncan (in contrib/ dir) explaining how to
+  setup Cyrus IMAPD + pam_pwdfile so that one does not have to create system
+  accounts for imapd users
+* added Makefile.standalone by Gerald Richter to the contrib files.
+* integrated patch by Greg Norris for better handling of bigcrypt/crypt
+  switcheroos.  Greg Norris in the current Debian maintainer.
+* The 't' key on my home linux workstation is going.
+
+0.98 : Mon Jun 10 23:49:46 CEST 2002
+
+* added contrib directory with spec file and Makefile by Jason F. McBrayer
+  <jason@xeran.com>.
+* -lcrypt is now used again (because it is necessary in some cases, doh);
+  Problem reported by Charles Vejnar <chv@fr.st>
+* That damn Mozilla beat us to 1.0!
+
+0.97 : Sat May 11 16:40:19 CEST 2002
+
+* added md5.h, md5.c, md5_crypt.c and bigcrypt.c from the pam_unix.c module.
+  This fixes the bug where crypt() would not be able to do md5 crypting if
+  an SSL library was linked into the calling application.  Several users
+  reported this, but the report (and possible patch, which I chose not to use,
+  opting instead to emulate pam_unix) of Yu Guanghui <ygh@dlut.edu.cn> was 
+  most useful.
+* Small tweaks to documentation.
+
+0.95 : Sat Jul 14 22:38:16 CEST 2001
+
+* added features.h, _BSD_SOURCE now defined by Makefile (for vsyslog a.o.)
+* integrated patch by Ethan Benson <erbenson@alaska.net> that enables a two
+  second PAM delay when an incorrect password is supplied.
+* yes, if this version floats for long enough, we can do the 1.0 thing.
+
+0.9: Fri Jun 15 23:23:31 CEST 2001
+
+* integrated patch by Stephen Darragh <srd@it.net.au> to fix problems with
+  short MD5 crypts and trailing newlines.  In fact, his patch just makes
+  things a tad more correct, short MD5 crypts or not.
+
+0.8: Sat May 12 11:57:18 CEST 2001
+
+* the MrKen (aka MJ Turner) release.  Removed unnecessary include that was
+  breaking the debian builds.
+
+0.7: Tue Apr 17 23:13:34 CEST 2001
+
+* changed error message if user is not found in password file
+* updated to work with > Linux-PAM-0.75 (thanks to Kelly Corbin
+  <kcorbin@theiqgroup.com> for reporting the problem)
+
+0.6: Sat Nov 11 23:51:32 CET 2000
+
+* fixed a stupid bug I introduced when integrating Warwick's patch; tested
+  fine with both DES and MD5 crypts
+
+0.5: Wed Nov  8 01:39:22 CET 2000
+
+* added patch by Warwick Duncan <warwick@chemeng.uct.ac.za> to support MD5 
+  crypted passwords as well
+
+0.4: Tue Aug 29 09:23:23 SAST 2000
+
+* fixed typo in INSTALL (thanks to Quynh Nguyen Anh <quynhna@hotmail.com>)
+
+0.3: Mon Aug 28 09:49:27 SAST 2000
+
+* INSTALL file created.  This explains how to get pam_pwdfile compiled from
+  scratch.
+
+0.2: Mon May 22 22:41:30 SAST 2000
+
+* integrated patch by Jacob Schroeder <jacob@quantec.de> to implement
+  flock()-based password file locking
+* minor code tweaks (indentation, unnecessary variables removed)
+* minor README file updates
+* this file
+
+0.1: ?
+
+* Initial release
